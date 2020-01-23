@@ -9,8 +9,16 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{name }}</h1>
-        {{ update() }}
+        <!--<h1>{{ name }}</h1>
+        <div v-on:click = "updateName">
+            Click!
+        </div> -->
+        <div class = "box" v-on:mousemove="getCoord">
+            Hover over me!
+        </div>
+        <p>x: {{ x }}</p>
+        <p>y:{{ y }}</p>
+        
     
     </div>
     
@@ -19,17 +27,31 @@
         new Vue({
             el:"#app",
             data:{
-                name:'First'
+                name:'First',
+                x: 0,
+                y: 0,
                
             },
             methods:{
-                update(){
-                    setTimeout(()=>{
-                        this.name = 'Second'
+                
+                    updateName(){
+                        this.name = 'Second';
 
-                    },2000)
-                }
+                    },
+                    getCoord(event){
+                        this.x = event.clientX;
+                        this.y = event.clientY;
+
+                    }
+                
             }
         })
 </script>
+<style>
+    .box {
+        background: red;
+        width: 200px;
+        height: 200px;
+    }
+</style>
 </html>

@@ -18,9 +18,9 @@
                <button @click="addNameToList">ADD</button>
             </div>
             <div class="error_label" v-if="showError">
-               Please enter a name!
+               Please enter a name to choose the bill payer!
             </div>
-            <div class="List_of_names">
+            <div class="list_of_names">
                <div
                   v-for="(name,index) in names"
                   :key="index"
